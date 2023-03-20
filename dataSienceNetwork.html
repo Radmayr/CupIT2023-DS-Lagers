@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <py-env>
+        - matplotlib
+        - pandas
+        - numpy
+        - tqdm
+        - nltk
+        - scikit-learn
+       
+    
+    </py-env>
+
+    <py-config>
+      packages = ["matplotlib", "pandas", "numpy", "tqdm", "nltk", "scikit-learn"]
+    </py-config>
+    
+
+    <title>Hello, world!</title>
+
+    <style type="text/css">
+
+      body {
+        position: relative;  
+        background-color: #eeeeee;
+        }
+
+      .paddingProblems {
+        padding-top: 60px;
+      }
+
+      #Home {
+        height: 50px;
+        width: 50px;
+      }
+
+      #jumbotron {
+        background-image: url(https://images.unsplash.com/photo-1445263568431-e8766de3165b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60);
+        background-size: 100%;
+      }
+
+      #formJump {
+        margin: 0 auto;
+      }
+
+      #email {
+        width: 250px;
+      }
+
+      #oh {
+        margin-top: 60px;
+      }
+
+      #needMoreText {
+        font-size: 130%;
+        position: relative;
+        top: -15px;
+      }
+
+      .avatar {
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .post {
+        margin-top: 30px;
+        margin-left: 100px;
+        width: 700px;
+        word-wrap: break-word;
+        background-color: white;
+      }
+
+      #message {
+        margin-top: -160px;
+        margin-left: 830px;
+        width: 300px;
+        word-wrap: break-word;
+        background-color: white;
+      }
+
+      .indentation {
+        margin-left: -20px;
+        border-color: blue;
+      }
+
+      .postContent {
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-bottom: 8px;
+      }
+
+      .postText {
+        margin-left: 20px;
+      }
+
+      .comments {
+        padding-left: 30px;
+        padding-bottom: 3px;
+        margin-right: 30px;
+        margin-top: 8px;
+      }
+
+      .comment {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      #Download {
+        background-color: #dddddd;
+        margin-top: 50px;
+        margin-bottom: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align: center;
+      }
+
+      #iCanDoIt {
+        width: 200px;
+      }
+
+
+
+    </style>
+
+  </head>
+
+  <body data-spy="scroll" data-target="#navbar-example" data-offset="60">
+
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-primary fixed-top " id="navbar-example" data-offset="50">
+
+      <a class="navbar-brand text-light" href="#">Social Network</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#Home">News Feed<span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#About">My page</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#Download">Messages</a>
+          </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-md-0">
+
+          <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Search">
+
+          <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Search">
+
+          <button class="btn btn-light my-2 my-sm-0" type="submit">Login</button>
+
+        </form>
+
+      </div>
+
+    </nav>
+
+    <div id="Home" class="paddingProblems"></div>
+
+
+    <div class="post shadow p-3 mb-5 bg-white rounded">
+
+        <div class="postContent">
+
+            <img src="https://html5css.ru/w3images/avatar2.png" class="avatar rounded mr-2" alt="Avatar">
+            <strong style="color: blue;">Oliver:</strong>
+        
+            <p class="postText">How many summer Y Combinator fundees decided not to continue with their startup and go back to school? and what were the reasons?</p>
+
+            <hr class="indentation">
+            <hr class="indentation">
+
+            <div id="postComments1"></div>
+
+            <div style="margin-top: 20px; margin-bottom: 10px;"><form class="form-inline my-2 my-md-0">
+
+                <input id="firstInput" style="width: 455px" class="form-control mr-2 p-3, commentField" type="text" placeholder="Write a comment..." aria-label="Search">
+
+                <button type="button" class="btn btn-outline-secondary">Cheak</button>
+
+                <button py-click="add_comment_post1()" style="margin-left: auto; margin-right: 30px;" class="btn btn-outline-primary my-2 my-sm-0" type="button">Submit</button>
+
+            </form></div>
+
+        </div>       
+
+    </div>
+
+    <div class="post shadow p-3 mb-5 bg-white rounded" >
+
+        <div class="postContent">
+
+            <img src="https://html5css.ru/w3images/avatar2.png" class="avatar rounded mr-2" alt="Avatar">
+            <strong style="color: blue;">Harry:</strong></p>
+
+            <p class="postText">CBS acquires last.fm for $280m</p>
+
+            <hr class="indentation">
+            <hr class="indentation">
+
+            <div id="postComments2"></div>
+
+            <div style="margin-top: 20px; margin-bottom: 10px;"><form class="form-inline my-2 my-md-0">
+
+                <input id="secondInput" style="width: 455px" class="form-control mr-2 p-3 commentField" type="text" placeholder="Write a comment..." aria-label="Search">
+
+                <button type="button" class="btn btn-outline-secondary">Cheak</button>
+
+                <button py-click="add_comment_post2()" style="margin-left: auto; margin-right: 30px;" class="btn btn-outline-primary my-2 my-sm-0" type="button">Submit</button>
+
+              </form></div>  
+
+              
+        </div> 
+
+    </div>
+
+    <div class="post shadow p-3 mb-5 bg-white rounded">
+
+      <div class="postContent">
+
+        <img src="https://html5css.ru/w3images/avatar2.png" class="avatar rounded mr-2" alt="Avatar">
+        <strong style="color: blue;">Thomas:</strong></p>
+
+        <p class="postText">How Costco Became the Anti-Wal-Mart</p>
+
+        <hr class="indentation">
+        <hr class="indentation">
+
+        <div id="postComments3">
+
+        </div>
+
+        <div style="margin-top: 20px; margin-bottom: 10px;"><form class="form-inline my-2 my-md-0">
+
+          <input id="thirdInput" style="width: 455px" class="form-control mr-2 p-3, commentField" type="text" placeholder="Write a comment..." aria-label="Search">
+
+          <button type="button" class="btn btn-outline-secondary">Cheak</button>
+
+          <button py-click="add_comment_post3()" style="margin-left: auto; margin-right: 30px;" class="btn btn-outline-primary my-2 my-sm-0" type="button">Submit</button>
+
+        </form></div>       
+
+
+        </div>
+
+      </div>
+
+    <div class="post shadow p-3 mb-5 bg-white rounded">
+
+      <div class="postContent">
+
+        <img src="https://html5css.ru/w3images/avatar2.png" class="avatar rounded mr-2" alt="Avatar">
+        <strong style="color: blue;">George:</strong></p>
+
+        <p class="postText">StartupWeekend: 70 Founders Create One Company in a Weekend</p>
+
+        <hr class="indentation">
+        <hr class="indentation">
+
+        <div id="postComments4">
+
+        </div>
+
+        <div style="margin-top: 20px; margin-bottom: 10px;"><form class="form-inline my-2 my-md-0">
+
+          <input id="fourthInput" style="width: 455px" class="form-control mr-2 p-3, commentField" type="text" placeholder="Write a comment..." aria-label="Search">
+
+          <button type="button" class="btn btn-outline-secondary">Cheak</button>
+
+          <button py-click="add_comment_post4()" style="margin-left: auto; margin-right: 30px;" class="btn btn-outline-primary my-2 my-sm-0" type="button">Submit</button>
+
+        </form></div>       
+
+
+      </div>
+
+    </div>
+
+
+      <div id="Download" class="paddingProblems">
+
+        <p>© Evil Сorporation</p>
+
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+      
+
+    </script>
+
+    <py-script >
+
+import pandas as pd
+import numpy as np
+import string 
+import json
+import re
+from tqdm import notebook
+from itertools import combinations
+# import spellchecker
+from nltk.corpus import stopwords as nltk_stopwords
+# from transformers import AutoTokenizer, AutoModel
+from sklearn.metrics.pairwise import cosine_similarity
+  #    import torch
+  #    import transformers as ppb
+import warnings
+import pickle
+  #    warnings.filterwarnings('ignore')
+
+  #    from stop_words import get_stop_words
+from nltk.corpus import stopwords
+
+import nltk
+#  nltk.download('stopwords')
+
+  #    stop_words = list(get_stop_words('en'))         #About 900 stopwords
+   #   nltk_words = list(stopwords.words('english')) #About 150 stopwords
+    #  stop_words.extend(nltk_words)
+
+img_avatar = ["https://html5css.ru/w3images/avatar2.png", "https://html5css.ru/howto/img_avatar2.png", "https://html5css.ru/howto/img_avatar.png"]
+
+post_text1 = [[0, "Jack", '''Going back to school is not identical with giving up. Some founders go back to school and keep working on the startup while there.  However, those do so much worse than the people who work on the startup full-time that going back to school seems, in practice, not too far removed from a death sentence for a startup.Off the top of my head, I\'d guess we\'ve had about 8 startups where the founders went back to school.  It doesn\'t only happen with summer batches.  Founders from winter batches do it too.Usually the reason is that the startup isn\'t doing very well. However, that judgement depends a lot on how determined the founders are.  One reason we now shy away from funding people still in school is that they often unconsciously want the startup to fail, because the idea of dropping out frightens them.A lot of startups look bad after 3 months.  Someone who\'s out of school and has to make it work or get a job in a cubicle will say "don\'t worry, we\'ll figure out how to make it successful."'''], [1, "Ann", '''There will invariably be those who don't see the success they set out for, and they fall back to their original path. That's why a founder's commitment is so critical. When your one plan is to become a startup founder, regardless of school or any other factors, you will do your damndest to make something of value and succeed. It's part _doing_ it better than the next guy and _wanting_ it more than the next guy.''']]
+
+post_text2 = [[0, 'Jacob', '''It will be curious to see where this heads in the long run.  CBS is on a tear but will it fit their image, will they try and establish control, overall agenda.  I've enjoyed last.fm for many years supporting through paypal donations each time I expire...it'll be interesting.'''], [0, 'Charley', 'sold out too cheaply. given their leadership position, they should have ask for at least $500m']]
+
+post_text3 = []
+post_text4 = []
+
+def displaying_comments(id_post, id_info):
+  manual_div = Element(id_post)
+  text = ''
+  for i in range(len(id_info)):
+    text += '<img src="' 
+    text += img_avatar[id_info[i][0]]
+    text += '"class="avatar rounded mr-2" alt="Avatar"><strong style="color: blue;">'
+    text += id_info[i][1]
+    text += ':</strong></p><div class="comment"><p>'
+    text += id_info[i][2]
+    text += '</p><hr class="indentation"></div></div>'
+  manual_div.element.innerHTML = text
+
+displaying_comments("postComments1", post_text1)       
+displaying_comments("postComments2", post_text2)       
+
+def add_comment_post1():
+  text = Element('firstInput').element.value
+  if (text != ""):
+    Element('firstInput').element.value = ''
+    post_text1.insert(0, [2, "Me", text])
+
+    displaying_comments("postComments1", post_text1)
+
+    
+
+def add_comment_post2():
+  text = Element('secondInput').element.value
+  if (text != ""):
+    Element('secondInput').element.value = ''
+    post_text2.insert(0, [2, "Me", text])
+
+    displaying_comments("postComments2", post_text2)
+
+def add_comment_post3():
+  text = Element('thirdInput').element.value
+  if (text != ""):
+    Element('thirdInput').element.value = ''
+    post_text3.insert(0, [2, "Me", text])
+
+    displaying_comments("postComments3", post_text3)          
+
+
+def add_comment_post4():
+  text = Element('fourthInput').element.value
+  if (text != ""):
+    Element('fourthInput').element.value = ''
+    post_text4.insert(0, [2, "Me", text])
+
+    displaying_comments("postComments4", post_text4)
+
+    </py-script>
+
+  </body>
+
+</html>
